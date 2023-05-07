@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home_nav"
+        android:title="Home"/>
+    <item
+        android:id="@+id/nav_message"
+        android:icon="@drawable/message_nav"
+        android:title="Message"/>
+
+    <item
+        android:id="@+id/nav_trash"
+        android:icon="@drawable/delete_nav"
+        android:title="Delete"/>
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/settings_nav"
+        android:title="Settings"/>
+
+    <item android:title="Profile">
+        <menu>
+            <item
+                android:id="@+id/signIn"
+                android:icon="@drawable/login_nav"
+                android:title="Login"/>
+            <button
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/profile_person"
+                android:title="My Profile"/>
+
+            <item
+                android:id="@+id/signOut"
+                android:icon="@drawable/logout_nav"
+                android:title="Log out"/>
+
+        </menu>
+    </item>
+
+    <item android:title="Communication">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/share_nav"
+                android:title="Share"/>
+
+            <item
+                android:id="@+id/nav_rate_us"
+                android:icon="@drawable/rate_review_nav"
+                android:title="Rate Us"/>
+        </menu>
+    </item>
+
+
+
+
+
+
+</menu>
