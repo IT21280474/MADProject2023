@@ -42,18 +42,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.profilemy.setOnClickListener{
-            startActivity(Intent(this,ProfileActivity::class.java))
-            startActivity(intent)
-
-        }
-        binding.veiwdata.setOnClickListener{
-            startActivity(Intent(this,viewActivity::class.java))
-            startActivity(intent)
-
-        }
+//        binding.profilemy.setOnClickListener{
+//            startActivity(Intent(this,ProfileActivity::class.java))
+//            startActivity(intent)
+//
+//        }
+//        binding.veiwdata.setOnClickListener{
+//            startActivity(Intent(this,viewActivity::class.java))
+//            startActivity(intent)
+//
+//        }
         binding.signIn.setOnClickListener{
-            startActivity(Intent(this,RegisterActivity::class.java))
+            startActivity(Intent(this,LoginActivity::class.java))
             finish()
         }
         binding.signOut.setOnClickListener{
@@ -72,15 +72,58 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.nav_home->Toast.makeText(applicationContext,"Home", Toast.LENGTH_LONG).show()
-                R.id.signIn->Toast.makeText(applicationContext,"Login ${auth.currentUser?.email}", Toast.LENGTH_LONG).show()
-                R.id.signOut->Toast.makeText(applicationContext,"Log Out ${auth.currentUser?.email}", Toast.LENGTH_LONG).show()
+                R.id.nav_home-> {
+                    startActivity(Intent(this,Home::class.java))
+                    drawerLayout.closeDrawers()
+                    true
+                    Toast.makeText(applicationContext,"Home", Toast.LENGTH_LONG).show()
+                }
+                R.id.signIn-> {
+                    startActivity(Intent(this,LoginActivity::class.java))
+                    drawerLayout.closeDrawers()
+                    true
+                    Toast.makeText(
+                        applicationContext,
+                        "Login ${auth.currentUser?.email}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                R.id.signOut-> {
+                    auth.signOut()
+                    Toast.makeText(
+                        applicationContext,
+                        "Log Out ${auth.currentUser?.email}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
                 R.id.nav_message->Toast.makeText(applicationContext,"View Massages", Toast.LENGTH_LONG).show()
-                R.id.nav_profile->Toast.makeText(applicationContext,"Go to My Profile", Toast.LENGTH_LONG).show()
+                R.id.nav_profile-> {
+                    startActivity(Intent(this,viewActivity::class.java))
+                    Toast.makeText(applicationContext, "Go to My Profile", Toast.LENGTH_LONG).show()
+                }
                 R.id.nav_rate_us->Toast.makeText(applicationContext,"Rate Us", Toast.LENGTH_LONG).show()
                 R.id.nav_trash->Toast.makeText(applicationContext,"Delete", Toast.LENGTH_LONG).show()
-                R.id.nav_settings->Toast.makeText(applicationContext,"Settings", Toast.LENGTH_LONG).show()
-                R.id.nav_share->Toast.makeText(applicationContext,"Share App", Toast.LENGTH_LONG).show()
+                R.id.nav_settings-> {
+                    startActivity(Intent(this,SettingsActivity::class.java))
+                    drawerLayout.closeDrawers()
+                    true
+                    Toast.makeText(applicationContext, "Settings", Toast.LENGTH_LONG).show()
+                }
+
+                R.id.nav_share-> {
+                    val shareIntent = Intent(Intent.ACTION_SEND)
+                    shareIntent.type = "text/plain"
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this amazing app!")
+                    shareIntent.setPackage("com.whatsapp") // Set the package name of WhatsApp
+
+                    if (shareIntent.resolveActivity(packageManager) != null) {
+                        startActivity(shareIntent)
+                    } else {
+                        Toast.makeText(applicationContext, "WhatsApp is not installed on your device", Toast.LENGTH_SHORT).show()
+                    }
+                    true
+                    Toast.makeText(applicationContext, "Share App", Toast.LENGTH_LONG).show()
+                }
             }
             true
         }
@@ -100,7 +143,7 @@ class MainActivity : AppCompatActivity() {
         }
         ContextCompat.registerReceiver(this, myBroadcastReceiver,filter,receiverFlags)
         GlobalScope.launch {
-            delay(5000)
+            delay(1000)
             val intent = Intent()
             intent.action = "com.example.lab8.MY_CUSTOM_ACTION"
             sendBroadcast(intent)

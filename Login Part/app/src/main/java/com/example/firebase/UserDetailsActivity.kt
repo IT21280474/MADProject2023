@@ -1,6 +1,8 @@
 package com.example.firebase
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -27,7 +29,8 @@ class UserDetailsActivity : AppCompatActivity() {
         initView()
         setValuesToViews()
 
-
+        supportActionBar?.title="Details"
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
         btnprofileUpdate.setOnClickListener {
             openUpdateDialog(
                 intent.getStringExtra("userId").toString(),

@@ -1,5 +1,7 @@
 package com.example.firebase
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -33,6 +35,8 @@ class ProfileActivity : AppCompatActivity() {
         dbRef= FirebaseDatabase.getInstance().getReference("Users")
         btnSave.setOnClickListener{
             saveUserData()
+            supportActionBar?.title="My profile"
+            supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
 
 
 //            val buttonedit=findViewById<Button>(R.id.EditButton)
