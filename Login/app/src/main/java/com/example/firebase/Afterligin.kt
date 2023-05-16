@@ -14,7 +14,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-
+//main
 class Afterligin : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityAfterliginBinding
