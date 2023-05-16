@@ -53,7 +53,7 @@ class Afterligin : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+//navigate
         navView.setNavigationItemSelectedListener { menuItem ->
             when(menuItem.itemId){
                 R.id.nav_home -> Toast.makeText(applicationContext, "Home", Toast.LENGTH_LONG).show()

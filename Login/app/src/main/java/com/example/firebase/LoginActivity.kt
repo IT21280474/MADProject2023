@@ -40,11 +40,6 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
-//    private fun emailFocusListener(){
-//        binding.emailEditText.setOnFocusChangeListener{_,focused->
-//            if (!focused){
-//                binding.emailLogin.helperText=validEmail()
-//            }
-//        }
-//    }
+
+    
 }
