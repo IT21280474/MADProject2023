@@ -12,7 +12,7 @@ class Home : AppCompatActivity() {
         supportActionBar?.title="Home"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
 
-
+//new AlertDialog.Builder
 
     }
 }
