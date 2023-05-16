@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp"
+    tools:context=".SettingsActivity"
+    >
+<TextView
+    android:id="@+id/titleTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Settings"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:layout_marginBottom="16dp"/>
+
+<!-- Example of a setting item -->
+    <Switch
+        android:id="@+id/notificationSwitch"
+        android:layout_width="371dp"
+        android:layout_height="48dp"
+        android:checked="true"
+        android:text="Enable Notifications" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="378dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="16dp"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:text="Save" />
+
+</LinearLayout>
